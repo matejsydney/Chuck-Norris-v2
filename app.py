@@ -47,19 +47,7 @@ def webhook():
 
 
 def processRequest(req):
-#    if req.get("result").get("action")=="yahooWeatherForecast":
-#        baseurl = "https://query.yahooapis.com/v1/public/yql?"
-#        yql_query = makeYqlQuery(req)
-#        if yql_query is None:
-#            return {}
-#        yql_url = baseurl + urlencode({'q': yql_query}) + "&format=json"
-#        result = urlopen(yql_url).read()
-#        data = json.loads(result)
-#        res = makeWebhookResult(data)
     if req.get("result").get("action")=="getjoke":
-#        baseurl = "http://api.icndb.com/jokes/random"
-#        result = urlopen(baseurl).read()
-#        data = json.loads(result)
         res = makeWebhookResultForGetJoke()
     else:
         return {}
@@ -70,7 +58,7 @@ def processRequest(req):
 def makeWebhookResultForGetJoke():
 #    valueString = data.get('value')
 #    joke = valueString.get('joke') - removing this part
-    joke = (jokeDict[str(random.randint(1,186))])
+    joke = (jokeDict[str(random.randint(1,2))])
     speechText = "<speak>" + joke + '<break time="2s"/>' + " Would you like another joke?" + "</speak>"
     displayText = joke + " Would you like another joke?"
     return {
