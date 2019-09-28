@@ -18,14 +18,6 @@ from flask import make_response
 import random
 from jokeList import jokeDict
 
-#picking random starts with first number and ends with the last one- converted to string
-#randomJoke = str(random.randint(1,4))
-#jokeReturn = (jokeDict[randomJoke])
-# MY ADDITION THE ABOVE NOT NEEDED  2
-
-
-
-
 # Flask app should start in global layout
 app = Flask(__name__)
 
@@ -68,56 +60,6 @@ def makeWebhookResultForGetJoke():
         # "contextOut": [],
         "source": "Heroku live webhook v4.3"
     }
-'''
-def makeYqlQuery(req):
-    result = req.get("result")
-    parameters = result.get("parameters")
-    city = parameters.get("geo-city")
-    if city is None:
-        return None
-
-    return "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + city + "') and u='c'"
-
-
-def makeWebhookResult(data):
-    query = data.get('query')
-    if query is None:
-        return {}
-
-    result = query.get('results')
-    if result is None:
-        return {}
-
-    channel = result.get('channel')
-    if channel is None:
-        return {}
-
-    item = channel.get('item')
-    location = channel.get('location')
-    units = channel.get('units')
-    if (location is None) or (item is None) or (units is None):
-        return {}
-
-    condition = item.get('condition')
-    if condition is None:
-        return {}
-
-    # print(json.dumps(item, indent=4))
-
-    speech = "Todays C2 weather in " + location.get('city') + ": " + condition.get('text') + \
-             ", And the temperature feels " + condition.get('temp') + " " + units.get('temperature')
-
-    print("Response:")
-    print(speech)
-
-    return {
-        "speech": speech,
-        "displayText": speech,
-        # "data": data,
-        # "contextOut": [],
-        "source": "apiai-weather-webhook-sample"
-    }
-'''
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
