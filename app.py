@@ -40,7 +40,7 @@ def webhook():
 
 def processRequest(req):
     if req.get("result").get("action")=="getjoke":
-        res = makeWebhookResultForGetJoke()
+        res = makeWebhookResultForGetJokev2()
     else:
         return {}
 
@@ -60,6 +60,25 @@ def makeWebhookResultForGetJoke():
         # "contextOut": [],
         "source": "Heroku live webhook v4.3"
     }
+
+def makeWebhookResultForGetJokev2():
+#    valueString = data.get('value')
+#    joke = valueString.get('joke') - removing this part
+    joke = (jokeDict[str(random.randint(1,2))])
+    speechText = "<speak>" + joke + '<break time="2s"/>' + " Would you like another joke?" + "</speak>"
+    displayText = joke + " Would you like another joke???"
+    return {
+        "fulfillmentText": speechText,
+        "fulfillmentMessages": [
+            {
+                "text": [
+                    displayText
+                ],
+            }
+        ],
+    }
+
+
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
