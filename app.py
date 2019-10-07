@@ -63,7 +63,7 @@ def makeWebhookResultForGetJoke():
     }
 
 def makeWebhookResultForGetJokev2():
-    joke = (jokeDict[str(random.randint(1,2))])
+    joke = (jokeDict[str(random.randint(1,186))])
     speechText = "<speak>" + joke + '<break time="2s"/>' + " Would you like another joke?" + "</speak>"
     displayText = joke + " Would you like another joke???"
     return {
@@ -71,18 +71,15 @@ def makeWebhookResultForGetJokev2():
                 "fulfillmentMessages": [{"simpleResponses": {"simpleResponses": [   {
                     "textToSpeech": speechText,
                     "displayText": displayText
-                }]}}]
+                }]}}],
                 "suggestions": [
                     {
-                        "title": "25"
+                        "title": "Another joke"
                     },
                     {
-                        "title": "45"
-                    },
-                    {
-                        "title": "Never mind"
+                        "title": "Cancel"
                     }
-                ],
+                ]
             }
 
 
