@@ -67,11 +67,14 @@ def makeWebhookResultForGetJokev2():
     speechText = "<speak>" + joke + '<break time="2s"/>' + " Would you like another joke?" + "</speak>"
     displayText = joke + " Would you like another joke???"
     return {
+            {
                 "fulfillmentText": speechText,
                 "fulfillmentMessages": [{"simpleResponses": {"simpleResponses": [   {
                     "textToSpeech": speechText,
                     "displayText": displayText
                 }]}}],
+            },
+            {
             "suggestions": {
                 "suggestions": [
                     {
@@ -81,6 +84,7 @@ def makeWebhookResultForGetJokev2():
                         "title": "Cancel"
                     }
                 ]
+            }
             }
         }
 
