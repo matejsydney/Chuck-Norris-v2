@@ -72,6 +72,17 @@ def makeWebhookResultForGetJokev2():
                     "textToSpeech": speechText,
                     "displayText": displayText
                 }]}}]
+                "suggestions": [
+                    {
+                        "title": "25"
+                    },
+                    {
+                        "title": "45"
+                    },
+                    {
+                        "title": "Never mind"
+                    }
+                ],
             }
 
 
