@@ -67,10 +67,10 @@ def makeWebhookResultForGetJokev2():
     speechText = "<speak>" + joke + '<break time="2s"/>' + " Would you like another joke?" + "</speak>"
     displayText = joke + " Would you like another joke???"
     return {
-                "fulfillmentText": "response text",
+                "fulfillmentText": speechText,
                 "fulfillmentMessages": [{"simpleResponses": {"simpleResponses": [   {
-                    "textToSpeech": "response text",
-                    "displayText": "response text"
+                    "textToSpeech": speechText,
+                    "displayText": displayText
                 }]}}]
             }
 
