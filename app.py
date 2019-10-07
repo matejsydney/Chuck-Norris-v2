@@ -63,22 +63,16 @@ def makeWebhookResultForGetJoke():
     }
 
 def makeWebhookResultForGetJokev2():
-#    valueString = data.get('value')
-#    joke = valueString.get('joke') - removing this part
     joke = (jokeDict[str(random.randint(1,2))])
     speechText = "<speak>" + joke + '<break time="2s"/>' + " Would you like another joke?" + "</speak>"
     displayText = joke + " Would you like another joke???"
     return {
-        "fulfillmentText": speechText,
-        "fulfillmentMessages": [
-            {
-                "text": [
-                    displayText
-                ],
+                "fulfillmentText": "response text",
+                "fulfillmentMessages": [{"simpleResponses": {"simpleResponses": [   {
+                    "textToSpeech": "response text",
+                    "displayText": "response text"
+                }]}}]
             }
-        ],
-    }
-
 
 
 if __name__ == '__main__':
