@@ -72,6 +72,7 @@ def makeWebhookResultForGetJokev2():
                     "textToSpeech": speechText,
                     "displayText": displayText
                 }]}}],
+            "suggestions": {
                 "suggestions": [
                     {
                         "title": "Another joke"
@@ -81,6 +82,7 @@ def makeWebhookResultForGetJokev2():
                     }
                 ]
             }
+        }
 
 
 if __name__ == '__main__':
