@@ -20,6 +20,7 @@ from jokeList import jokeDict
 
 # Flask app should start in global layout
 app = Flask(__name__)
+log = app.logger
 
 
 @app.route('/webhook', methods=['POST'])
@@ -39,7 +40,7 @@ def webhook():
 
 
 def processRequest(req):
-    if req.get("result").get("action")=="getjoke":
+    if req.get("queryResult").get("action")=="getjoke":
         res = makeWebhookResultForGetJokev2()
     else:
         return {}
